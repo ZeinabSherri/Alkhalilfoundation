@@ -1,4 +1,7 @@
 <footer>
+<?php
+	wp_footer()
+	?>
 	<div class="footer_top_holder">
     	<div class="footer_top">
         	<div class="footer_top_box">
@@ -76,9 +79,10 @@
 <!--<a href="#" class="back-to-top">Back To Top</a>-->
 <!-- Return to Top -->
 <a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i>Back To Top</a>
-
+ 
 <script src="https://elkhalilfoundation.org:443/js/jquery.viewportchecker.js"></script>
-<script type="text/javascript" src="https://elkhalilfoundation.org:443/scripts/jquery.cycle.all.js"></script>
+<script type="text/javascript" src="https://elkhalilfoundation.org:443/scripts/jquery.cycle.all.js"></script> 
+
 <!--<script>  
    jQuery(window).bind("load", function(){ jQuery(window).resize(); });  
 </script>-->

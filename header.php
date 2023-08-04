@@ -15,7 +15,7 @@
     
 <?php wp_head(); ?>
     
-<!-- <script>var test="https://elkhalilfoundation.org:443/";var test1="https://elkhalilfoundation.org:443/";</script>
+ <script>var test="https://elkhalilfoundation.org:443/";var test1="https://elkhalilfoundation.org:443/";</script>
 <script type="text/javascript" src="https://elkhalilfoundation.org:443/js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="https://elkhalilfoundation.org:443/js/modernizr.custom.67980.js"></script>
 
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="https://elkhalilfoundation.org:443/scripts/jquery.validate.js"></script>
 
 
-<script type="text/javascript" src="https://elkhalilfoundation.org:443/manage.js"></script> -->
+<script type="text/javascript" src="https://elkhalilfoundation.org:443/manage.js"></script>
 <script>
 $(document).ready(function(){
 	$('body').waitForImages(true).done(function() {
@@ -49,7 +49,13 @@ $(document).ready(function(){
 	 <div class="header_navigationInner-mobile">
      <a id="nav-toggle" ><span></span></a>
      <a class="mob_logo" href="https://elkhalilfoundation.org:443/El-Khalil-Foundation">
-            <img src="https://elkhalilfoundation.org:443/images/logo.png" alt="El Khalil Foundation" title="El Khalil Foundation" />
+        <?php  $custom_logo_id = get_theme_mod('theme_logo');
+    if ($custom_logo_id) {
+        $custom_logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+        if ($custom_logo) {
+            echo '<img src="' . esc_url($custom_logo[0]) . '" alt="El Khalil Foundation" title="El Khalil Foundation" />';
+        }
+    } ?>    <!-- <img src="https://elkhalilfoundation.org:443/images/logo.png" alt="El Khalil Foundation" title="El Khalil Foundation" /> -->
         </a>
      <nav class="mobile-navigation">
    
@@ -92,7 +98,28 @@ $(document).ready(function(){
 	<div class="top_header">
     	<div class="top_header_holder">
         	<div class="top_header-inner">
-            	<div class="top_header-menu">
+            <div class="top_header-menu">
+            <?php
+ $args = array(
+    'theme_location' => 'custom_menu',
+    'container'      => 'div',
+    'container_class' => 'top_header-menu', // Add your container class 'top_header-menu'
+    'menu_class'     => 'menu', // Add your menu class 'menu'
+
+    'echo'           => false,
+);
+
+$menu = wp_nav_menu($args);
+
+// Output the menu
+echo $menu;
+
+
+
+    
+    ?>
+</div>
+            	<!-- <div class="top_header-menu">
                 	 <ul class="menu">
                         <li class="distance">
                             
@@ -109,7 +136,7 @@ $(document).ready(function(){
                         <li class="distance"><a href="https://elkhalilfoundation.org:443/Contact" title="Contact" class="menu_item">Contact<div class="menu-border-top"></div></a></li>    
                     </ul> 
                    
-                </div>
+                </div> -->
                 <div class="top_header-social">
                 	<ul class="menu">
                         <li class="distance-social">
